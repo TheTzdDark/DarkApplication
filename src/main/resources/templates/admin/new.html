@@ -13,28 +13,28 @@
         <table th:border="0" th:cellpadding="3">
             <tr>
                 <td>Имя: </td>
-                <td><input type="text" th:field="*{username}"/></td>
+                <td><input type="text" th:field="*{username}" required minlength="2" maxlength="32"/></td>
             </tr>
             <tr>
                 <td>Почта: </td>
-                <td><input type="text" th:field="*{email}"/></td>
+                <td><input type="email" th:field="*{email}" required/></td>
             </tr>
             <tr>
                 <td>Возраст: </td>
-                <td><input type="number" th:field="*{age}"/></td>
+                <td><input type="number" th:field="*{age}" required min="1" max="127"/></td>
             </tr>
             <tr>
                 <td>Статус: </td>
-                <td><input type="text" th:field="*{status}"/></td>
+                <td><input type="text" th:field="*{status}" maxlength="32"/></td>
             </tr>
             <tr>
                 <td>Пароль: </td>
-                <td><input type="text" th:field="*{password}"/></td>
+                <td><input type="text" th:field="*{password}" required/></td>
             </tr>
             <tr>
                 <td>Роли: </td>
                 <td>
-                    <select th:field="*{roles}" required multiple="multiple">
+                    <select th:field="*{roles}" multiple="multiple" required>
                         <option th:each="role : ${allRoles}"
                                 th:value="${role.id}"
                                 th:text="${role.name.substring(5)}"></option>
