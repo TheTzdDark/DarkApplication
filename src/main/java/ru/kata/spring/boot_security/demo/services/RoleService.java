@@ -6,12 +6,4 @@ import java.util.List;
 
 public interface RoleService {
     List<Role> getAll();
-
-    void save(Role role);
-
-    void removeById(long id);
-
-    Role getById(long id);
-
-    void update(Role role, long id);
 }
