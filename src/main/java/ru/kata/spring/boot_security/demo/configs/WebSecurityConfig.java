@@ -32,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/**").permitAll()
                 .antMatchers("/user").hasRole("USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
@@ -39,7 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();
+                .permitAll()
+                .and()
+                .csrf().disable();
     }
 
     @Bean
