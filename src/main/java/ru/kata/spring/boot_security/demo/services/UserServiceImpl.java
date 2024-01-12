@@ -1,6 +1,5 @@
 package ru.kata.spring.boot_security.demo.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,24 +10,24 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @Autowired
     public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User getById(long id) {
         return userRepository.getById(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<User> getAll() {
         return userRepository.findAll();
     }

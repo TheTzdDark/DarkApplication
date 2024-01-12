@@ -1,6 +1,5 @@
 package ru.kata.spring.boot_security.demo.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -24,7 +23,6 @@ public class AdminRESTController {
     private final UserService service;
     private final RoleService roleService;
 
-    @Autowired
     public AdminRESTController(UserService service, RoleService roleService) {
         this.service = service;
         this.roleService = roleService;
